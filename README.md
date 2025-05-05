@@ -8,7 +8,7 @@ Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e te
 
 ---
 
-## Pipeline generale
+## Pipeline di lavoro
 
 ### 1. **Caricamento e pulizia dati**
 - Dataset originale in CSV con SMILES e docking scores separati da `;`
@@ -16,12 +16,12 @@ Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e te
 - Rimozione di duplicati su base `SMILES`
 - Standardizzazione dei docking scores con `StandardScaler`
 
-### 2. **Augmentazione SELFIES**
-- Per ogni molecola:
-  - 1 SELFIES canonico
+### 2. **Data augmentation SELFIES**
+- Per ogni molecola rappresentata in SMILE otterremo:
+  - 1 SELFIES equivalente allo SMILE 'canonico'
   - 2 SELFIES da SMILES randomizzati con `doRandom=True`
-- Si ottengono 3 rappresentazioni SELFIES per molecola con stesso score
-- Controllo finale dei duplicati su SELFIES tokenizzati
+per un totale di 3 rappresentazioni SELFIES per molecola con stesso score
+
 
 ### 3. **Tokenizzazione e codifica**
 - Estrazione dei token da tutti i SELFIES
