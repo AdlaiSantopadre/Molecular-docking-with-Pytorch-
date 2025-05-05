@@ -1,1 +1,113 @@
-# Molecular-docking-with-Pytorch-
+# Descrizione progetto 
+Il progetto di studio si articola in due parti:
+1. Costruzione di un modello Ligand-only per la predizione regressiva della affinità di legame
+2. Evoluzione in un modello generativo di tipo VAE 
+
+## 1. Docking score prediction con RNN
+Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e testare  un modello istanziato dalla classe DockingRNN progettata tramite una rete RNN in PyTorch, e adottando tecniche di data augmentation, regolarizzazione e controllo dell'overfitting.
+
+---
+
+## Pipeline generale
+
+### 1. **Caricamento e pulizia dati**
+- Dataset originale in CSV con SMILES e docking scores separati da `;`
+- Conversione dei docking scores da stringhe a `float`
+- Rimozione di duplicati su base `SMILES`
+- Standardizzazione dei docking scores con `StandardScaler`
+
+### 2. **Augmentazione SELFIES**
+- Per ogni molecola:
+  - 1 SELFIES canonico
+  - 2 SELFIES da SMILES randomizzati con `doRandom=True`
+- Si ottengono 3 rappresentazioni SELFIES per molecola con stesso score
+- Controllo finale dei duplicati su SELFIES tokenizzati
+
+### 3. **Tokenizzazione e codifica**
+- Estrazione dei token da tutti i SELFIES
+- Costruzione di un vocabolario `{token: index}` con indice 0 riservato al padding
+- Codifica di ogni sequenza SELFIES in indici numerici
+
+### 4. **Split del dataset**
+- 80% training, 10% validation, 10% test
+- Split eseguito dopo augmentazione
+
+---
+
+## Architettura del modello RNN
+
+```python
+class DockingRNN(nn.Module):
+    def __init__(self, vocab_size, embedding_dim=128, hidden_dim=256, num_layers=2, dropout=0.3):
+        ...
+```
+
+- Layer di embedding per trasformare i token in vettori
+- LSTM multi-layer (2 livelli) con dropout interno
+- Dropout aggiuntivo tra LSTM e layer fully-connected
+- Regressore finale `fc` che restituisce uno score scalare
+
+---
+
+## Allenamento del modello
+
+- Ottimizzazione con Adam (`lr=1e-3`, `weight_decay=1e-5`)
+- MSE loss
+- Early stopping attivo con `patience=3`
+- Tracciamento metriche: `train/val loss`, `MAE`, `RMSE`, `R2`
+- Salvataggio del miglior modello con `torch.save(model.state_dict())`
+
+---
+
+## Valutazione sul test set
+
+- Calcolo delle metriche:
+  - `RMSE`, `MAE`, `R²`
+- Visualizzazione Predetto vs Reale con Matplotlib
+- Identificazione dei peggiori outlier (molecole con errore più alto)
+
+---
+
+## Strategie anti-overfitting adottate
+
+- Dropout (0.3–0.4)
+- Early stopping
+- Regularizzazione L2 (weight decay)
+- Data deduplication
+- Data augmentation su SELFIES
+
+---
+
+## Approfondimenti e idee future
+
+- Visualizzazione degli embedding con UMAP/t-SNE
+- Riutilizzo del modello RNN come encoder in un VAE
+- Aggiunta di feature RDKit (LogP, MW, TPSA...)
+- Attenzione bidirezionale e meccanismi di attention
+- Uso di SELFIES random per aumentare la robustezza
+
+---
+
+## Persistenza e salvataggio
+
+- Salvataggio del modello completo con `torch.save(model)`
+- Salvataggio delle metriche con `pickle`
+- Download locale via `files.download()`
+- Alternativamente: salvataggio su Google Drive
+
+---
+
+## Stato finale
+
+- Ultimo test: `RMSE ≈ 0.771`, `MAE ≈ 0.593`, `R² ≈ 0.417`
+- Addestramento fermato alla 21ª epoca su 30 grazie a early stopping
+- Modello più profondo e regolarizzato rispetto alla versione iniziale
+
+---
+
+**Prossimi step suggeriti:**
+- Visualizzazione embedding
+- Estensione VAE
+- Feature engineering chimico
+- Valutazione su dataset esterno o struttura target-specifica
+
