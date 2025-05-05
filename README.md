@@ -4,7 +4,7 @@ Il progetto di studio si articola in due parti:
 2. Evoluzione in un modello generativo di tipo VAE 
 
 ## 1. Docking score prediction con RNN
-Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e testare  un modello istanziato dalla classe DockingRNN progettata tramite una rete RNN in PyTorch, e adottando tecniche di data augmentation, regolarizzazione e controllo dell'overfitting.
+Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e testare  un modello istanziato dalla classe DockingRNN progettata tramite una rete RNN in PyTorch. Adotteremo tecniche di data augmentation, regolarizzazione e controllo dell'overfitting.
 
 ---
 
