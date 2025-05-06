@@ -99,8 +99,8 @@ class DockingRNN(nn.Module):
 
 ## Stato finale
 
-- Ultimo test: `RMSE ≈ 0.771`, `MAE ≈ 0.593`, `R² ≈ 0.417`
-- Addestramento fermato alla 21ª epoca su 30 grazie a early stopping
+- Ultimo test: `RMSE ≈ 0.7541`, `MAE ≈ 0.5804`, `R² ≈ 0.4236`
+- Addestramento fermato alla 18ª epoca su 30 grazie a early stopping
 - Modello più profondo e regolarizzato rispetto alla versione iniziale
 
 ---
