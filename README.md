@@ -80,7 +80,7 @@ class DockingRNN(nn.Module):
 
 ## Approfondimenti e idee future
 
-- Visualizzazione degli embedding con UMAP/t-SNE
+- Visualizzazione degli embedding con UMAP/t-SNE (è presente un notebook con un esempio applicato ai dati del dataset di test)
 - Riutilizzo del modello RNN come encoder in un VAE
 - Aggiunta di feature RDKit (LogP, MW, TPSA...)
 - Attenzione bidirezionale e meccanismi di attention
