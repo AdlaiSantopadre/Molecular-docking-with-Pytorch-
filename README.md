@@ -6,6 +6,9 @@ Il progetto di studio si articola in due parti:
 ## 1. Docking score prediction con RNN
 Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e testare  un modello istanziato dalla classe DockingRNN progettata tramite una rete RNN in PyTorch. Adotteremo tecniche di data augmentation, regolarizzazione e controllo dell'overfitting.
 
+Per la trattazione della attività svolta si faccia riferimento alle celle di testo dei notebook pertinenti. 
+Un riassunto è proposto anche nei du file Descrizione_Modello_RNN_Docking e Descrizione_Modelli_VAE_Molecular
+
 ---
 
 ## Pipeline di lavoro
