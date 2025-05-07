@@ -18,20 +18,6 @@ Sviluppare un *Variational Autoencoder* (VAE) in PyTorch per rappresentazioni mo
 #### Problema riscontrato: *collasso dello spazio latente*
 - Durante il training iniziale il decoder RNN tendeva a ignorare il vettore latente `z`, basandosi unicamente sull'informazione proveniente da teacher forcing.
 
-#### Soluzione implementata:
-- Il decoder è stato progettato per **ricevere esplicitamente `z` concatenato a ogni input token** del decoder RNN:
-  ```python
-  input_token = embedding[token]  
-  decoder_input = torch.cat([input_token, z_expanded], dim=-1)
-  ```
-- Inoltre, `z` viene **usato per inizializzare lo stato nascosto del decoder LSTM** tramite una proiezione lineare:
-  ```python
-  h0 = self.z_to_h(z).unsqueeze(0)
-  c0 = self.z_to_c(z).unsqueeze(0)
-  ```
-- Queste strategie forzano il decoder a **dipendere realmente da `z`**, evitando il collasso.
-
----
 
 ## Funzione di perdita
 
