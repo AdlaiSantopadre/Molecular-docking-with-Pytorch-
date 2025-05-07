@@ -3,13 +3,13 @@ Il progetto di studio si articola in due parti:
 1. Costruzione di un modello Ligand-only per la predizione regressiva della affinità di legame
 2. Evoluzione in un modello generativo di tipo VAE 
 
-## 1. Docking score prediction con RNN
+
 Nel primo notebook utilizzeremo il dataset fornito per addestrare, validare e testare  un modello istanziato dalla classe DockingRNN progettata tramite una rete RNN in PyTorch. Adotteremo tecniche di data augmentation, regolarizzazione e controllo dell'overfitting.
 
 Per la trattazione della attività svolta si faccia riferimento alle celle di testo dei notebook pertinenti. 
 Un riassunto è proposto anche nei du file Descrizione_Modello_RNN_Docking e Descrizione_Modelli_VAE_Molecular
 
----
+## 1. Docking score prediction con RNN
 
 ## Pipeline di lavoro
 
