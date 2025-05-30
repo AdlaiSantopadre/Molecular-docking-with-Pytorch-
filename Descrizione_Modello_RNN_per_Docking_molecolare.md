@@ -68,15 +68,6 @@ class DockingRNN(nn.Module):
 - Data deduplication
 - Data augmentation su SELFIES
 
----
-
-## Approfondimenti e idee future
-
-- Visualizzazione degli embedding con UMAP/t-SNE (è presente un notebook con un esempio applicato ai dati del dataset di test)
-- Riutilizzo del modello RNN come encoder in un VAE
-- Aggiunta di feature RDKit (LogP, MW, TPSA...)
-- Attenzione bidirezionale e meccanismi di attention
-- Uso di SELFIES random per aumentare la robustezza
 
 ---
 
@@ -95,6 +86,13 @@ class DockingRNN(nn.Module):
 - Modello più profondo e regolarizzato rispetto alla versione iniziale
 
 ---
+## Approfondimenti e idee future
+
+- Visualizzazione degli embedding con UMAP/t-SNE (è presente un notebook con un esempio applicato ai dati del dataset di test)
+- Riutilizzo del modello RNN come encoder in un VAE
+- Aggiunta di feature RDKit (LogP, MW, TPSA...)
+- Attenzione bidirezionale e meccanismi di attention
+- Uso di SELFIES random per aumentare la robustezza
 
 **Prossimi step suggeriti:**
 - Visualizzazione embedding
