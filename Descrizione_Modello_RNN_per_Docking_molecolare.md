@@ -1,18 +1,18 @@
-## 1. Docking score prediction con RNN
+. ## 1. Docking score prediction con RNN
 
 ## Pipeline di lavoro
 
 ### 1. **Caricamento e pulizia dati**
 - Dataset originale in CSV con SMILES e docking scores separati da `;`
 - Conversione dei docking scores da stringhe a `float`
-- Rimozione di duplicati su base `SMILES`
-- Standardizzazione dei docking scores con `StandardScaler`
+- Rimozione di duplicati su base `SMILES`(dopo i primi addestramenti) 
+
 
 ### 2. **Data augmentation SELFIES**
 - Per ogni molecola rappresentata in SMILE otterremo:
-  - 1 SELFIES equivalente allo SMILE 'canonico'
-  - 2 SELFIES da SMILES randomizzati con `doRandom=True`
-per un totale di 3 rappresentazioni SELFIES per molecola con stesso score
+  + 1 SELFIES equivalente allo SMILE del dataset  
+  + 2 SELFIES da SMILES randomizzati con `doRandom=True`
+per un totale di 3 rappresentazioni SELFIES per la stessa molecola con  stesso score 
 
 
 ### 3. **Tokenizzazione e codifica**
@@ -83,7 +83,6 @@ class DockingRNN(nn.Module):
 ## Persistenza e salvataggio
 
 - Salvataggio del modello completo con `torch.save(model)`
-- Salvataggio delle metriche con `pickle`
 - Download locale via `files.download()`
 - Alternativamente: salvataggio su Google Drive
 
