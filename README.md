@@ -1,4 +1,4 @@
-## Docking score prediction con RNN
+# Docking score prediction con RNN
 
 ## Pipeline di lavoro
 
