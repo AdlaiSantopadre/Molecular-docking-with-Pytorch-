@@ -1,0 +1,11 @@
+SELFIES sequence
+    ↓
+[Embedding Layer]
+    ↓
+[1° LSTM Layer (hidden_dim)]
+    ↓
+[2° LSTM Layer (hidden_dim)]
+    ↓
+[Last hidden state h_n (dalla 2° LSTM)]
+    ↓
+[Linear → docking score]
