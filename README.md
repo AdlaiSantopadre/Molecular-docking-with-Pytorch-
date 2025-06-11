@@ -36,7 +36,7 @@ class DockingRNN(nn.Module):
 
 - Layer di embedding per trasformare i token in vettori
 - LSTM multi-layer (2 livelli) con dropout interno
-- Dropout aggiuntivo tra LSTM e layer fully-connected
+- Considerato dropout aggiuntivo tra LSTM e layer fully-connected
 - Regressore finale `fc` che restituisce uno score scalare
 
 ---
