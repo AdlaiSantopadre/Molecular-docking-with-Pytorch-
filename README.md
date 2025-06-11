@@ -22,7 +22,7 @@ per un totale di 3 rappresentazioni SELFIES per la stessa molecola con  stesso s
 
 ### 4. **Split del dataset**
 - 80% training, 10% validation, 10% test
-- Split eseguito dopo augmentazione
+- Split eseguito dopo data augmentation 
 
 ---
 
