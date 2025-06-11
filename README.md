@@ -5,7 +5,7 @@
 ### 1. **Caricamento e pulizia dati**
 - Dataset originale in CSV con SMILES e docking scores separati da `;`
 - Conversione dei docking scores da stringhe a `float`
-- Rimozione di duplicati su base `SMILES`(dopo i primi addestramenti) 
+- Rimozione di duplicati su base `SMILES` 
 
 
 ### 2. **Data augmentation SELFIES**
