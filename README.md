@@ -1,6 +1,6 @@
 # Descrizione progetto 
 Il progetto di studio si articola in due parti:
-1. Costruzione di un modello Ligand-only per la predizione regressiva della affinità di legame
+1. Costruzione di un modello Ligand-only per la predizione regressiva della affinità di legame, cui fa riferimento il notebook Model DockingRNN.ipynb
 2. Evoluzione in un modello generativo di tipo VAE 
 
 
