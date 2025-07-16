@@ -5,7 +5,7 @@
 ### 1. **Caricamento e pulizia dati**
 - Dataset originale in CSV con SMILES e docking scores separati da `;`
 - Conversione dei docking scores da stringhe a `float`
-- Rimozione di duplicati su base `SMILES`(dopo i primi addestramenti) 
+- Rimozione di duplicati su base `SMILES` 
 
 
 ### 2. **Data augmentation SELFIES**
@@ -22,7 +22,7 @@ per un totale di 3 rappresentazioni SELFIES per la stessa molecola con  stesso s
 
 ### 4. **Split del dataset**
 - 80% training, 10% validation, 10% test
-- Split eseguito dopo augmentazione
+- Split eseguito dopo data augmentation 
 
 ---
 
@@ -36,7 +36,7 @@ class DockingRNN(nn.Module):
 
 - Layer di embedding per trasformare i token in vettori
 - LSTM multi-layer (2 livelli) con dropout interno
-- Dropout aggiuntivo tra LSTM e layer fully-connected
+- Considerato dropout aggiuntivo tra LSTM e layer fully-connected
 - Regressore finale `fc` che restituisce uno score scalare
 
 ---
